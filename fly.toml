@@ -1,0 +1,26 @@
+app = "udp-flooder-app"  # Yeh app ka naam hai, tu ise apne hisaab se change kar sakta hai
+
+# Build section - Specify Dockerfile for building the app
+[build]
+  dockerfile = "Dockerfile"  # Dockerfile ka path, agar custom location pe hai toh path update karna hoga
+
+# Environment variables for your app
+[env]
+  FLOODER_MODE = "active"  # Example environment variable, adjust as per your script's needs
+
+# Deployment settings
+[deploy]
+  strategy = "immediate"  # Immediate deployment strategy, it will deploy immediately after pushing
+
+[experimental]
+  auto_rollback = true  # Automatic rollback if deployment fails
+
+# Optional: Scaling settings, if needed
+[scaling]
+  min_count = 1  # Minimum instances
+  max_count = 5  # Maximum instances
+  vm_size = "shared-cpu-1x"  # Size of VM (can be adjusted based on your needs)
+
+# Regions: Define the region where you want to deploy the app
+[regions]
+  "nyc" = "New York"  # Example region, you can choose other regions from Fly.io dashboard
